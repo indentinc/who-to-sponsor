@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "test-basic-npm-who-to-sponsor",
+  "dependencies": {
+    "alpinejs": "latest",
+    "babel": "latest",
+    "unified": "latest"
+  }
+}

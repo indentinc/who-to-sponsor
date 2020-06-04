@@ -1,0 +1,64 @@
+{
+  "version": "0.0.2",
+  "license": "Apache-2.0",
+  "name": "who-to-sponsor",
+  "author": "Indent Inc <open@indent.com>",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "composite": true,
+  "bin": {
+    "who-to-sponsor": "./lib/bin/index.js"
+  },
+  "scripts": {
+    "build": "run-s build:pkg build:bin",
+    "build:pkg": "tsc -p tsconfig.json",
+    "build:bin": "ncc build ./src/bin.ts -o ./lib/bin && chmod +x ./lib/bin/index.js",
+    "ci:test": "yarn clean:pkg && yarn build:pkg && yarn test",
+    "clean:pkg": "rimraf lib",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.154",
+    "axios": "^0.19.2",
+    "chalk": "^4.0.0",
+    "commander": "^5.1.0",
+    "lodash": "^4.17.15",
+    "path": "^0.12.7",
+    "prompts": "^2.3.2",
+    "strip-ansi": "^6.0.0",
+    "type-fest": "^0.15.0",
+    "update-check": "^1.5.4",
+    "yaml": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.6",
+    "@types/prompts": "^2.0.8",
+    "@zeit/ncc": "^0.22.3",
+    "jest": "^26.0.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.3"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ],
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*.test.ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "./tsconfig.json",
+        "diagnostics": false
+      }
+    }
+  }
+}
