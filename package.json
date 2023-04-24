@@ -28,7 +28,7 @@
     "strip-ansi": "^6.0.0",
     "type-fest": "^0.15.0",
     "update-check": "^1.5.4",
-    "yaml": "^1.10.0"
+    "yaml": "^2.2.2"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
